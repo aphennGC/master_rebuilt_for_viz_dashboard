@@ -3,15 +3,15 @@ view: trailing_sales_snapshot {
   datagroup_trigger: thelook_prod_etl
   sql: with calendar as
       (select distinct created_at as snapshot_date
-      from 'bigquery-public-data.thelook_ecommerce.inventory_items'
+      from `bigquery-public-data.thelook_ecommerce.inventory_items`
       )
 
     select
     inventory_items.product_id
     ,date(order_items.created_at) as snapshot_date
     ,count(*) as trailing_28d_sales
-    from 'bigquery-public-data.thelook_ecommerce.order_items'
-    join 'bigquery-public-data.thelook_ecommerce.inventory_items'
+    from `bigquery-public-data.thelook_ecommerce.order_items`
+    join `bigquery-public-data.thelook_ecommerce.inventory_items`
     on order_items.inventory_item_id = inventory_items.id
     join calendar
     on date(order_items.created_at) <= date(date_add(calendar.snapshot_date, interval 28 day))
