@@ -9,7 +9,7 @@ view_label: "Repeat Purchase Facts"
       , MIN(repeat_order_items.created_at) AS next_order_date
       , MIN(repeat_order_items.order_id) AS next_order_id
     FROM 'bigquery-public-data.thelook_ecommerce.order_items' as order_items
-    LEFT JOIN 'bigquery-public-data.thelook_ecommerce.order_items' repeat_order_items
+    LEFT JOIN 'bigquery-public-data.thelook_ecommerce.order_items' as repeat_order_items
       ON order_items.user_id = repeat_order_items.user_id
       AND order_items.created_at < repeat_order_items.created_at
     GROUP BY 1, 2
