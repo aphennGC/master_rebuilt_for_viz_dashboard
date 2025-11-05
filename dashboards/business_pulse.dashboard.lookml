@@ -19,7 +19,7 @@
   elements:
   - title: Number of First Purchasers
     name: Number of First Purchasers
-    model: thelook_prod
+    model: master
     explore: order_items
     type: single_value
     fields: [users.count]
@@ -64,7 +64,7 @@
     height: 4
   - title: Average Order Sale Price
     name: Average Order Sale Price
-    model: thelook_prod
+    model: master
     explore: order_items
     type: single_value
     fields: [order_items.average_sale_price]
@@ -146,7 +146,7 @@
     height: 4
   - title: Orders by Day and Category
     name: Orders by Day and Category
-    model: thelook_prod
+    model: master
     explore: order_items
     type: looker_area
     fields: [products.category, order_items.count, order_items.created_date]
@@ -227,7 +227,7 @@
     height: 6
   - title: Website Visit Volume vs Conversion Rate
     name: Website Visit Volume vs Conversion Rate
-    model: thelook_prod
+    model: master
     explore: events
     type: looker_column
     fields: [events.event_day_of_week, events.sessions_count, events.unique_visitors,
@@ -307,7 +307,7 @@
     height: 7
   - title: Percent of Cohort Still Active by Traffic Source
     name: Percent of Cohort Still Active by Traffic Source
-    model: thelook_prod
+    model: master
     explore: order_items
     type: looker_line
     fields: [order_items.months_since_signup, users.count, users.traffic_source]
@@ -396,7 +396,7 @@
     height: 7
   - title: Total Sales, Year over Year
     name: Total Sales, Year over Year
-    model: thelook_prod
+    model: master
     explore: order_items
     type: looker_line
     fields: [order_items.created_month_name, order_items.total_sale_price, order_items.created_year]
@@ -471,7 +471,7 @@
     height: 10
   - title: Highest Spending Users
     name: Highest Spending Users
-    model: thelook_prod
+    model: master
     explore: order_items
     type: looker_google_map
     fields: [users.approx_location, users.gender, order_items.total_sale_price, order_items.average_spend_per_user]
@@ -557,7 +557,7 @@
     height: 9
   - title: User Behaviors by Traffic Source
     name: User Behaviors by Traffic Source
-    model: thelook_prod
+    model: master
     explore: order_items
     type: looker_column
     fields: [users.traffic_source, order_items.average_sale_price, user_order_facts.average_lifetime_orders]
@@ -632,7 +632,7 @@
     height: 7
   - title: User Basic Demographic Profile
     name: User Basic Demographic Profile
-    model: thelook_prod
+    model: master
     explore: order_items
     type: looker_donut_multiples
     fields: [users.gender, users.traffic_source, order_items.count]
@@ -689,7 +689,7 @@
     height: 9
   - title: 30 Day Repeat Purchase Rate
     name: 30 Day Repeat Purchase Rate
-    model: thelook_prod
+    model: master
     explore: order_items
     type: single_value
     fields: [order_items.30_day_repeat_purchase_rate]
@@ -747,7 +747,7 @@
     height: 4
   - title: Total Order Count
     name: Total Order Count
-    model: thelook_prod
+    model: master
     explore: order_items
     type: single_value
     fields: [order_items.count, order_items.created_year]
@@ -859,7 +859,7 @@
     height: 2
   - title: Most Viewed Brands Online
     name: Most Viewed Brands Online
-    model: thelook_prod
+    model: master
     explore: sessions
     type: looker_grid
     fields: [product_viewed.brand, sessions.count, sessions.cart_to_checkout_conversion,
@@ -966,7 +966,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: thelook_prod
+    model: master
     explore: order_items
     listens_to_filters: []
     field: users.traffic_source
@@ -979,7 +979,7 @@
     ui_config:
       type: button_group
       display: inline
-    model: thelook_prod
+    model: master
     explore: order_items
     listens_to_filters: []
     field: users.gender
@@ -998,7 +998,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: thelook_prod
+    model: master
     explore: order_items
     listens_to_filters: []
     field: distribution_centers.location
@@ -1011,7 +1011,7 @@
     ui_config:
       type: button_group
       display: popover
-    model: thelook_prod
+    model: master
     explore: order_items
     listens_to_filters: []
     field: users.country
@@ -1024,7 +1024,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: thelook_prod
+    model: master
     explore: order_items
     listens_to_filters: [Country]
     field: users.state
@@ -1037,7 +1037,7 @@
     ui_config:
       type: advanced
       display: popover
-    model: thelook_prod
+    model: master
     explore: order_items
     listens_to_filters: [State, Country]
     field: users.city
