@@ -235,14 +235,14 @@ view: order_items {
     sql: ${TABLE}.status ;;
   }
 ######### Liquid for Dynamic User Input ##########
-      parameter: desired_status {
-        type: string
-        default_value: "complete" # Use lowercase for easier matching in Liquid
-        allowed_value: { label: "Completed Orders" value: "complete" }
-        allowed_value: { label: "Open Orders" value: "open" } ######Represents Processing or Shipped
-        allowed_value: { label: "Cancelled Orders" value: "cancelled" }
-        allowed_value: { label: "All Except Cancelled" value: "not_cancelled" }
-      }
+    parameter: desired_status {
+      type: string
+      default_value: "complete"
+      allowed_value: { label: "Completed Orders👍" value: "complete" }
+      allowed_value: { label: "Open Orders📬" value: "open" }
+      allowed_value: { label: "Cancelled Orders❌" value: "cancelled" }
+      allowed_value: { label: "All Except Cancelled⏳" value: "not_cancelled" }
+    }
 
       dimension: is_desired_status {
         type: yesno
