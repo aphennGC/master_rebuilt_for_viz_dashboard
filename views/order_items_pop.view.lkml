@@ -208,27 +208,7 @@ view: order_items_pop {
     drill_fields: [detail*]
   }
 ########## POP LOGIC ##########
-    parameter: period_offset {
-      type: unquoted
-      allowed_value: {value:"year"    label:"year"}
-      allowed_value: {value:"week"    label:"week"}
-      allowed_value: {value:"month"   label:"month"}
-      allowed_value: {value:"quarter" label:"quarter"}
-      default_value: "month" # Good to have a default
-    }
 
-    dimension_group: pop_date {
-      type: time
-      timeframes: [date,month,year]
-      sql: timestamp(date_add(date(${created_raw}), interval ${pop_support.periods_ago} {% parameter period_offset %}));;
-      description: "The date adjusted by the 'Periods Ago' offset. Use for PoP charts."
-    }
-
-    measure: max_created_in_period {
-      type: date
-      sql: max(timestamp_trunc(${created_raw}, {% if pop_date_month._is_selected %}MONTH{% elsif pop_date_year._is_selected %}YEAR{% else %}DAY{% endif %}));;
-      description: "Max original creation date within the selected PoP period."
-    }
 
 ########## Sets ##########
 
