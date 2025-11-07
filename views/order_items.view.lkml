@@ -234,6 +234,32 @@ view: order_items {
     description: "Current status of the order item (Processing, Shipped, etc.)"
     sql: ${TABLE}.status ;;
   }
+######### Liquid for Dynamic User Input ##########
+      parameter: desired_status {
+        type: string
+        default_value: "complete" # Use lowercase for easier matching in Liquid
+        allowed_value: { label: "Completed Orders" value: "complete" }
+        allowed_value: { label: "Open Orders" value: "open" } ######Represents Processing or Shipped
+        allowed_value: { label: "Cancelled Orders" value: "cancelled" }
+        allowed_value: { label: "All Except Cancelled" value: "not_cancelled" }
+      }
+
+      dimension: is_desired_status {
+        type: yesno
+        sql:
+              {% if desired_status._parameter_value == "'complete'" %}
+                ${status} = 'Complete'
+              {% elsif desired_status._parameter_value == "'open'" %}
+                ${status} IN ('Processing', 'Shipped')
+              {% elsif desired_status._parameter_value == "'cancelled'" %}
+                ${status} = 'Cancelled'
+              {% elsif desired_status._parameter_value == "'not_cancelled'" %}
+                ${status} != 'Cancelled' OR ${status} IS NULL
+              {% else %}
+                TRUE -- Default case, should not be hit if default_value is set
+              {% endif %}
+            ;;
+      }
 
   dimension: days_to_process {
     label: "Days to Process"
