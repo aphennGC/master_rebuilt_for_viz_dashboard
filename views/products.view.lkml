@@ -15,6 +15,21 @@ view: products {
     sql: TRIM(${TABLE}.category) ;;
     drill_fields: [department, brand, item_name]
   }
+  ######### Templated Filters #########
+   # You need to DEFINE the filter field that the user will type into
+  filter: category_search {
+    type: string
+    label: "Category Search"
+    # suggestion: category  # Optional: to provide suggestions from the category field
+  }
+
+  # This dimension uses the input from the 'category_search' filter
+  dimension: is_in_searched_category {
+    type: yesno
+    sql: {% condition category_search %} ${category} {% endcondition %} ;;
+    label: "Is In Searched Category"
+  }
+
 
   dimension: item_name {
     label: "Item Name"
