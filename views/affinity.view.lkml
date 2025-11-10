@@ -183,9 +183,9 @@ view: total_order_product {
         , COUNT(*) AS prod_freq
       FROM `bigquery-public-data.thelook_ecommerce.order_items` oi
       LEFT JOIN `bigquery-public-data.thelook_ecommerce.inventory_items` ii
-        ON oi.inventory_item_id = inventory_items.id
+        ON oi.inventory_item_id = ii.id
       LEFT JOIN `bigquery-public-data.thelook_ecommerce.products` p
-        ON inventory_items.product_id = p.id
+        ON ii.product_id = p.id
       GROUP BY p.id
        ;;
   }

@@ -1,6 +1,6 @@
 connection: "mock_trial_thelook"
 
-include: "/views/*.view.lkml"
+include: "/views/pop/*.view"
 
 explore: order_items_pop {
   label: "Order Items with PoP"
