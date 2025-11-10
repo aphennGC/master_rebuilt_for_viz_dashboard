@@ -1,4 +1,4 @@
-- dashboard: shipping_logistics__operations_overview
+- dashboard: shipping_logistics_operations_overview
   title: Shipping Logistics & Operations Overview
   layout: newspaper
   description: 'Shipping and logistics overview for an ecommerce store - showing things like how many orders are processing, and where things are shipping'

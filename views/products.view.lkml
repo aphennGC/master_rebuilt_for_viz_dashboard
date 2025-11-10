@@ -53,7 +53,7 @@ view: products {
     }
     link: {
       label: "{{value}} Analytics Dashboard"
-      url: "/dashboards/thelook_prod::brand_lookup?Brand%20Name={{ value | encode_uri }}"
+      url: "/dashboards/VJXbgpWTHnlzLWrTVvCEHK?Brand+Name={{ value | encode_uri }}"
       icon_url: "https://www.seekpng.com/png/full/138-1386046_google-analytics-integration-analytics-icon-blue-png.png"
     }
 

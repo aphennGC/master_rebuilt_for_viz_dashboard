@@ -72,7 +72,7 @@ view: users {
 
     link: {
       label: "User Lookup Dashboard"
-      url: "/dashboards/thelook_prod::customer_lookup?Email={{ value | encode_uri }}"
+      url: "/dashboards/MDDG8M9Lvb1S2zq5UuhUND?Email={{ value | encode_uri }}"
       icon_url: "https://cdn.icon-icons.com/icons2/2248/PNG/512/monitor_dashboard_icon_136391.png"
     }
     action: {
