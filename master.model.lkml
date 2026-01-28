@@ -24,6 +24,12 @@ explore: order_items {
   label: "(1) Orders, Items and Users"
   view_name: order_items
 
+  # Add the access_filter here
+  # access_filter: {
+  #   field: users.country  # The field to filter on (fully scoped: view_name.field_name)
+  #   user_attribute: country # The name of the user attribute
+  # }
+
   join: order_facts {
     type: left_outer
     view_label: "Orders"
